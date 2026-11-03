@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#15171C">
+
+<!-- Top bar -->
+<TextView
+    android:id="@+id/tvTitle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PDF Maker"
+    android:textColor="#FFFFFF"
+    android:textSize="22sp"
+    android:textStyle="bold"
+    android:layout_margin="18dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+<!-- Live camera preview -->
+<androidx.camera.view.PreviewView
+    android:id="@+id/cameraPreview"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_margin="12dp"
+    app:scaleType="fitCenter"
+    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+    app:layout_constraintBottom_toTopOf="@id/thumbnailScroll"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintVertical_bias="0.4" />
+
+<!-- Captured page thumbnails -->
+<HorizontalScrollView
+    android:id="@+id/thumbnailScroll"
+    android:layout_width="0dp"
+    android:layout_height="86dp"
+    android:fillViewport="false"
+    android:scrollbars="none"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginBottom="12dp"
+    app:layout_constraintBottom_toTopOf="@id/bottomControls"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+        android:id="@+id/thumbnailContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" />
+
+</HorizontalScrollView>
+
+<!-- Bottom controls -->
+<LinearLayout
+    android:id="@+id/bottomControls"
+    android:layout_width="0dp"
+    android:layout_height="100dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingHorizontal="24dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <Button
+        android:id="@+id/btnPages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pages: 0" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <ImageButton
+        android:id="@+id/btnCapture"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:backgroundTint="#FFFFFF"
+        android:contentDescription="Capture document page"
+        android:src="@android:drawable/ic_menu_camera"
+        app:tint="#15171C" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/finishTick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Finish ✓ (0)" />
+
+</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
